@@ -1,0 +1,161 @@
+Here is a comprehensive, step-by-step guide to set up and use MongoDB with Python in Visual Studio Code (VS Code):
+
+🔧 This guide covers:
+
+* Installing MongoDB and mongosh (MongoDB Shell)
+* Configuring the environment variable (PATH)
+* Installing Python and setting it up in VS Code
+* Installing the required Python package (PyMongo)
+* Writing and running Python code to interact with MongoDB
+
+---
+
+## 🧱 Step 1: Install MongoDB Community Edition and mongosh
+
+1. Go to the official MongoDB download page:
+   👉 [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
+
+2. Download the MSI installer for your operating system (Windows).
+
+3. Run the installer:
+
+   * Choose “Complete” setup.
+   * Ensure the following options are checked:
+
+     * Install MongoDB as a Service
+     * Install MongoDB Compass (GUI - optional)
+     * Install mongosh (MongoDB Shell)
+
+4. Finish the installation.
+
+🔎 After installation, default locations:
+
+* MongoDB binaries: C:\Program Files\MongoDB\Server\8.0\bin
+* mongosh: C:\Program Files\MongoDB\mongosh\bin
+
+---
+
+## 🛠️ Step 2: Add mongosh to System PATH
+
+1. Copy this path (adjust if needed):
+
+   ```
+   C:\Program Files\MongoDB\mongosh\bin
+   ```
+
+2. Press ⊞ Win + S, type:
+   “Environment Variables” → Click “Edit the system environment variables”
+
+3. In the System Properties window → click **Environment Variables…**
+
+4. Under "System variables", find and select **Path** → click **Edit…**
+
+5. Click **New** → paste the path from step 1.
+
+6. Click **OK** in all windows to save.
+
+7. Open a new command prompt (cmd) and type:
+
+   ```
+   mongosh
+   ```
+
+   If it opens the shell, it's working!
+
+---
+
+## 🐍 Step 3: Install Python and VS Code
+
+1. Download Python:
+   👉 [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+2. Run the installer and **make sure to check** the box:
+   ✅ Add Python to PATH
+
+3. Install VS Code from:
+   👉 [https://code.visualstudio.com/](https://code.visualstudio.com/)
+
+4. Open VS Code → go to Extensions (Ctrl+Shift+X) → install the Python extension by Microsoft.
+
+---
+
+## 📦 Step 4: Install pymongo in VS Code Terminal
+
+1. Open VS Code → open your Python project folder.
+
+2. Open Terminal (Ctrl + \`) and type:
+
+   ```
+   pip install pymongo
+   ```
+
+3. Optional: If you're using a virtual environment, activate it first:
+
+   ```
+   python -m venv venv
+   .\venv\Scripts\activate
+   pip install pymongo
+   ```
+
+---
+
+## 📄 Step 5: Write Python Code to Interact with MongoDB
+
+Create a file called mongo\_test.py and write the following:
+
+```python
+from pymongo import MongoClient
+
+# Connect to MongoDB server (default: localhost:27017)
+client = MongoClient("mongodb://localhost:27017/")
+
+# Create or access a database
+db = client["my_database"]
+
+# Create or access a collection
+collection = db["users"]
+
+# Insert a document
+collection.insert_one({"name": "Alice", "email": "alice@example.com"})
+
+# Query and print documents
+for doc in collection.find():
+    print(doc)
+```
+
+---
+
+## ▶️ Step 6: Run the Python File
+
+In VS Code terminal:
+
+```bash
+python mongo_test.py
+```
+
+If all is working correctly, it should insert a document and print it from the MongoDB collection.
+
+---
+
+## 🧪 Optional: Interact via mongosh
+
+Open a terminal or command prompt:
+
+```bash
+mongosh
+```
+
+Inside mongosh:
+
+```js
+use my_database
+db.users.find()
+```
+
+You’ll see the document added via Python.
+
+---
+
+✅ You're all set! Now MongoDB is fully integrated with Python in VS Code.
+
+Would you like me to generate a sample VS Code project folder structure as a template?
