@@ -140,7 +140,7 @@ if __name__ == "__main__":
         archive_old_data(config)
         delete_old_archived_data(config)
     except Exception:
-        logging.error("❌ Failed to execute archiving/deletion", exc_info=True)
+        logging.error("Failed to execute archiving/deletion", exc_info=True)
 ```
 
 ---
