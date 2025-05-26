@@ -129,10 +129,10 @@ def delete_old_archived_data(config):
         logging.info(f"Deleting archived documents older than: {threshold_date.isoformat()}")
 
         result = archive_collection.delete_many({"batch_date": {"$lte": threshold_date}})
-        logging.info(f"🗑 Deleted {result.deleted_count} documents from archive")
+        logging.info(f"Deleted {result.deleted_count} documents from archive")
 
     except Exception:
-        logging.error("❌ Error in delete_old_archived_data", exc_info=True)
+        logging.error("Error in delete_old_archived_data", exc_info=True)
 
 if __name__ == "__main__":
     try:
