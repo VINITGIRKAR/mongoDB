@@ -102,10 +102,10 @@ def archive_old_data(config):
             total_archived += len(batch)
             logging.info(f"Archived {len(batch)} documents this batch...")
 
-        logging.info(f"✅ Archived total of {total_archived} documents.")
+        logging.info(f"Archived total of {total_archived} documents.")
 
     except Exception:
-        logging.error("❌ Error in archive_old_data", exc_info=True)
+        logging.error("Error in archive_old_data", exc_info=True)
 
 def delete_old_archived_data(config):
     try:
