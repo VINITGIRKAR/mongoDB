@@ -8,3 +8,17 @@ https://vscode.dev/github/gitneural/Nextwave/blob/main/flexOps-0.1.448.tar.gz
 https://github.com/gitneural/Nextwave/blobcf1e5bc5988e2ef5704f3c017972092e2015685b/flexOps-0.1.448.tar.gz
 [flexOps-0.1.448.tar.gz](https://github.com/gitneural/Nextwave/blob/cf1e5bc5988e2ef5704f3c017972092e2015685b/flexOps-0.1.448.tar.gz)
 https://github.com/gitneural/Nextwave/blob/main/flexOps-0.1.448.tar.gz
+
+
+Terminal:
+neural@neural-A320M-S2H:~$ sudo nano /etc/ssh/sshd_config
+neural@neural-A320M-S2H:~$ sudo nano /etc/ssh/sshd_config
+neural@neural-A320M-S2H:~$ #scp neuralit@10.10.7.23:/home/neuralit/Documents/all_files.zip .
+neural@neural-A320M-S2H:~$ cd Documents/
+neural@neural-A320M-S2H:~/Documents$ scp neuralit@10.10.7.23:/home/neuralit/Documents/all_files.zip .
+neuralit@10.10.7.23's password: 
+Permission denied, please try again.
+neuralit@10.10.7.23's password: 
+all_files.zip                                                                                                                                 100%  658MB   1.1MB/s   09:46    
+neural@neural-A320M-S2H:~/Documents$ 
+
