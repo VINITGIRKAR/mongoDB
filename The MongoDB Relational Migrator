@@ -1,0 +1,69 @@
+### Success! The MongoDB Relational Migrator is Running 🎉
+
+From your logs, the service has started successfully on port **8080**. Here's what you should do next:
+
+---
+
+### **1. Access the Web Interface**
+Open your browser and go to:
+```
+http://localhost:8080
+```
+You should see the MongoDB Relational Migrator web UI.
+
+---
+
+### **2. Key Points from the Logs**
+- **Spring Boot** started successfully (v3.4.5)
+- **Tomcat** is running on port 8080
+- **Active profiles**: `unattended`, `embedded`, `prod`
+- **Warning**: Credentials are stored in-memory (not persisted)
+
+---
+
+### **3. Persistent Data Storage**
+Your data will be saved in:
+```
+/home/neural/Migrator
+```
+*(This was set via `MIGRATOR_PATH_DATA`)*
+
+---
+
+### **4. To Stop the Container**
+Press `Ctrl+C` in the terminal where it's running, or use:
+```bash
+docker compose -f docker-compose-migrator-local.yml down
+```
+
+---
+
+### **5. If You Need to Restart**
+Just run the same command again:
+```bash
+docker compose -f docker-compose-migrator-local.yml up migrator
+```
+(It will reuse your existing data in `/home/neural/Migrator`)
+
+---
+
+### **Troubleshooting Tips**
+1. **If you can't access port 8080**:
+   - Check if another service is using the port:
+     ```bash
+     sudo lsof -i :8080
+     ```
+   - Or change the port mapping in your YAML file:
+     ```yaml
+     ports:
+       - "9090:8080"  # Now access via http://localhost:9090
+     ```
+
+2. **To view logs later**:
+   ```bash
+   docker compose -f docker-compose-migrator-local.yml logs
+   ```
+
+---
+
+Let me know if you need help with the migrator tool itself! The hard part (Docker setup) is now done ✅
